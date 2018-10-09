@@ -10,6 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM Solution Documentation",
 		Broadcloth DM Solution Documentation\BroadclothStarDiagram.vsdx = Broadcloth DM Solution Documentation\BroadclothStarDiagram.vsdx
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM Build", "DM Build", "{6B5E9487-2FFA-43FA-B7A0-15BF811547CD}"
+	ProjectSection(SolutionItems) = preProject
+		DM Build\BuildBroadclothDM.sql = DM Build\BuildBroadclothDM.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
