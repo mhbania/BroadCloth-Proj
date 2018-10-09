@@ -1,3 +1,13 @@
+--BroadclothDM is....
+
+--BroadclothDM written and developed by Alexandra Ricker, Brooke Quinn, Marion Bania
+-- Originally Written: October 2018
+-----------------------------------------------------------
+
+
+
+--Drop existing tables
+
 IF NOT EXISTS(SELECT * FROM sys.databases
 	WHERE NAME = N'BroadclothDM')
 	CREATE DATABASE BroadclothDM
@@ -53,6 +63,9 @@ CREATE TABLE DimDate
 	Season				NVARCHAR(10)--Name of Season
 	);
 --
+
+
+--Create tables
 
 CREATE TABLE DimFactory
 	(
