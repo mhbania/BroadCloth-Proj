@@ -1,9 +1,9 @@
 IF NOT EXISTS(SELECT * FROM sys.databases
-	WHERE NAME = N'Broadcloth')
-	CREATE DATABASE Broadcloth
+	WHERE NAME = N'BroadclothDM')
+	CREATE DATABASE BroadclothDM
 GO  
 
-USE Broadcloth
+USE BroadclothDM
 GO
 --
 IF EXISTS(
@@ -28,21 +28,19 @@ IF EXISTS(
 	DROP TABLE DimCustomer;
 
 --
-
 IF EXISTS(
-	SELECT *
-	FROM sys.tables
-	WHERE NAME = N'DimDate'
-	)
-	DROP TABLE DimDate;
-
-	IF EXISTS(
 	SELECT *
 	FROM sys.tables
 	WHERE NAME = N'DimFactory'
 	)
 	DROP TABLE DimFactory;
 -- 
+IF EXISTS(
+	SELECT *
+	FROM sys.tables
+	WHERE NAME = N'DimDate'
+	)
+	DROP TABLE DimDate;
 -- 
 CREATE TABLE DimDate
 	(
@@ -62,7 +60,7 @@ CREATE TABLE DimFactory
 	Factory_AK			INT NOT NULL,
 	Nation				NVARCHAR(50) NOT NULL,
 	City				NVARCHAR(50) NOT NULL,
-	OverallRating		NUMERIC(18,0),
+	OverallRating		NUMERIC(18,0) NOT NULL,
 	MaxWorkers			INT NOT NULL,
 
 	);
@@ -82,7 +80,7 @@ CREATE TABLE DimProduct
 	(
 	Product_SK			INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Product_AK			INT NOT NULL,
-	ModelDescription		NVARCHAR(50) NOT NULL,
+	ModelDescription	NVARCHAR(50) NOT NULL,
 	Color				NVARCHAR(50) NOT NULL,
 	Size				NUMERIC(18,0) NOT NULL,
 
@@ -91,19 +89,19 @@ CREATE TABLE DimProduct
 --
 CREATE TABLE FactProduction
 	(
-Product_SK		INT NOT NULL,
-Customer_SK		INT NOT NULL,
-Factory_SK		INT NOT NULL,
-StartDateTime	INT NOT NULL,
-ActualEndTime	INT NOT NULL,
-QuantityShipped INT,
-QualityRating	NUMERIC(18,0),
-ProductionCost	NUMERIC(12,4),
+Product_SK			INT NOT NULL,
+Customer_SK			INT NOT NULL,
+Factory_SK			INT NOT NULL,
+StartDateTime		INT NOT NULL,
+ActualEndTime		INT NOT NULL,
+QuantityShipped		INT,
+QualityRating		NUMERIC(18,0),
+ProductionCost		NUMERIC(12,4),
 
 	CONSTRAINT pk_fact_production PRIMARY KEY (Product_SK,Customer_SK, Factory_SK,StartDateTime),
 	CONSTRAINT fk_start_dim_date FOREIGN KEY (StartDateTime) REFERENCES DimDate(Date_SK),
 	CONSTRAINT fk_end_dim_date FOREIGN KEY (ActualEndTime) REFERENCES DimDate(Date_SK),
 	CONSTRAINT fk_dim_customer FOREIGN KEY (Customer_SK) REFERENCES DimCustomer(Customer_SK),
 	CONSTRAINT fk_dim_product FOREIGN KEY (Product_SK) REFERENCES DimProduct(Product_SK),
-	CONSTRAINT fk_dim_factory FOREIGN KEY (Factory_SK) REFERENCES DimFactory(Factory_SK)
+	CONSTRAINT fk_dim_factory FOREIGN KEY (Factory_SK) REFERENCES DimFactory(Factory_SK),
 	);
