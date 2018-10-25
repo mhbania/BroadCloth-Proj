@@ -19,6 +19,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SSIS", "SSIS", "{287BDD07-9
 EndProject
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "BroadclothETL", "BroadclothETL\BroadclothETL.dtproj", "{18823B79-D17A-496C-8E90-937F7B5EAB00}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowerPivot", "PowerPivot", "{AB8C62C9-DD47-4E49-89C3-F4BF8C7AF3BB}"
+	ProjectSection(SolutionItems) = preProject
+		PowerPivot\BroadClothPowerPivot.xlsx = PowerPivot\BroadClothPowerPivot.xlsx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
