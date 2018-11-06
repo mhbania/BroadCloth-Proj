@@ -24,6 +24,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowerPivot", "PowerPivot", 
 		PowerPivot\BroadClothPowerPivot.xlsx = PowerPivot\BroadClothPowerPivot.xlsx
 	EndProjectSection
 EndProject
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "BroadclothSSAS", "BroadclothSSAS\BroadclothSSAS.dwproj", "{C0F36CF6-E539-423A-878C-C77D77003E90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CubeAnalysis", "CubeAnalysis", "{6006CCE5-F576-4703-8904-ED524E2385E8}"
+	ProjectSection(SolutionItems) = preProject
+		CubeAnalysis\BroadclothSSASCube.xlsx = CubeAnalysis\BroadclothSSASCube.xlsx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
@@ -31,6 +38,9 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{18823B79-D17A-496C-8E90-937F7B5EAB00}.Development|Default.ActiveCfg = Development
 		{18823B79-D17A-496C-8E90-937F7B5EAB00}.Development|Default.Build.0 = Development
+		{C0F36CF6-E539-423A-878C-C77D77003E90}.Development|Default.ActiveCfg = Development
+		{C0F36CF6-E539-423A-878C-C77D77003E90}.Development|Default.Build.0 = Development
+		{C0F36CF6-E539-423A-878C-C77D77003E90}.Development|Default.Deploy.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
